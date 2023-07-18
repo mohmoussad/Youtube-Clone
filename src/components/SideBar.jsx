@@ -1,0 +1,30 @@
+import React from "react";
+import { Stack } from "@mui/material";
+import { categories } from "../utils/constants";
+
+function SideBar({ selectedCategory, setSelectedCategory }) {
+  return (
+    <Stack
+      direction='row'
+      sx={{ overflow: "auto", height: { sx: "auto", md: "95%" }, flexDirection: { md: "column" } }}
+    >
+      {categories.map((category) => {
+        return (
+          <button
+            onClick={() => setSelectedCategory(category.name)}
+            className='category-btn'
+            style={{ background: selectedCategory === category.name && "#FC1503", color: "white" }}
+            key={category.name}
+          >
+            <span style={{ color: category.name === selectedCategory ? "white" : "red", marginRight: "15px" }}>
+              {category.icon}
+            </span>
+            <span>{category.name}</span>
+          </button>
+        );
+      })}
+    </Stack>
+  );
+}
+
+export default SideBar;
