@@ -13,6 +13,7 @@ a {
   text-decoration: none;
 }
 .to-top-btn {
+  display: none;
   position: fixed;
   bottom: 5%;
   right: 5%;
