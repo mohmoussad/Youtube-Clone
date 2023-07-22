@@ -11,7 +11,7 @@ import { useState, useRef, useEffect } from "react";
 import SideBar from "./components/SideBar";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState("New");
+  const [selectedCategory, setSelectedCategory] = useState("Home");
   const [isOpen, setIsOpen] = useState(true);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
