@@ -24,7 +24,7 @@ const SearchFeed = () => {
         <Loader />
       ) : (
         <Box minHeight='95vh'>
-          <Typography variant='h5' fontWeight={900} mb={3}>
+          <Typography p={2} variant='h5' fontWeight={900} mb={3}>
             Search Results for <span>{searchTerm}</span>
           </Typography>
           <Box display='flex'>
