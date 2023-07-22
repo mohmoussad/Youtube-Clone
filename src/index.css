@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
   /* border: 0.5px solid black; */
 }
 html,
@@ -25,6 +26,18 @@ a {
   border: none;
   border-radius: 50%;
   box-shadow: 10px 10px 30px -7px rgba(0, 0, 0, 0.68);
+}
+
+.show-more-btn {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: black;
+  background: "whitesmoke"; 
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 16px;
 }
 
 .react-player {
@@ -53,6 +66,7 @@ a {
     border-radius: 20px;
     transition: all 0.3s ease;
   margin: 10px;
+}
 .category-btn:hover,
   .sidebar-toggle-btn:hover {
     background-color: rgb(220, 220, 220) !important;
@@ -77,4 +91,4 @@ a {
           width: 4px;
           height: 4px;
         }
-        }
+        

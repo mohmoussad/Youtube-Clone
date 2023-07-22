@@ -6,9 +6,11 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Videos from "./Videos";
 import Loader from "./Loader";
 import ErrorAlert from "./ErrorAlert";
+import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
+  const [showMore, setShowMore] = useState(false);
   const [videos, setVideos] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -50,22 +52,32 @@ const VideoDetail = () => {
           <Typography variant='h5' fontWeight='bold' p={2}>
             {videoDetail.snippet.title}
           </Typography>
-          <p>{videoDetail.snippet.publishedAt}</p>
 
           <Stack direction='row' justifyContent='space-between' py={1} px={2}>
             <Link to={`/channel/${videoDetail.snippet.channelId}`}>
-              <Typography variant='h5'>{videoDetail.snippet.channelTitle}</Typography>
+              <Typography variant='h5' sx={{ backgroundColor: "whitesmoke", px: 2, borderRadius: "20px" }}>
+                <LiveTvIcon sx={{ mr: 1 }} />
+                {videoDetail.snippet.channelTitle}
+              </Typography>
             </Link>
             <Stack direction='row' gap='20px' alignItems='center'>
-              <Typography variant='body1' sx={{ opacity: 0.7 }}>
+              <Typography variant='body1' className='dimmed'>
                 {parseInt(videoDetail.statistics.viewCount).toLocaleString()} views
               </Typography>
-              <Typography variant='body1' sx={{ opacity: 0.7 }}>
+              <Typography variant='body1' className='dimmed'>
                 {parseInt(videoDetail.statistics.likeCount).toLocaleString()} likes
               </Typography>
             </Stack>
           </Stack>
-          <p>{videoDetail.snippet.description}</p>
+          <Stack direction='column' justifyContent='space-between' py={1} px={2}>
+            <Typography variant='body1' className='dimmed'>
+              {}
+              {showMore ? videoDetail.snippet.description : `${videoDetail.snippet.description.substring(0, 250)}`}
+              <button className='show-more-btn' onClick={() => setShowMore(!showMore)}>
+                {showMore ? "Show less" : "Show more"}
+              </button>
+            </Typography>
+          </Stack>
         </Box>
 
         <Box margin={10} justifyContent='center' alignItems='center'>
