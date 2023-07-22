@@ -6,7 +6,7 @@ import ChannelCard from "./ChannelCard";
 function Videos({ videos, direction }) {
   return (
     <Stack direction={direction || "row"} flexWrap='wrap' justifyContent='center' gap={3}>
-      {videos &&
+      {videos?.length > 0 ? (
         videos.map((item, index) => {
           return (
             <Box key={index}>
@@ -14,7 +14,10 @@ function Videos({ videos, direction }) {
               {item.id.channelId && <ChannelCard channel={item} />}
             </Box>
           );
-        })}
+        })
+      ) : (
+        <h3>No videos to show</h3>
+      )}
     </Stack>
   );
 }
