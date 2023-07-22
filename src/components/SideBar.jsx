@@ -1,29 +1,53 @@
 import React from "react";
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { categories } from "../utils/constants";
+import { Link } from "react-router-dom";
 
-function SideBar({ selectedCategory, setSelectedCategory }) {
+function SideBar({ selectedCategory, setSelectedCategory, isOpen }) {
   return (
-    <Stack
-      direction='row'
-      sx={{ overflow: "auto", height: { sx: "auto", md: "95%" }, flexDirection: { md: "column" } }}
+    <Box
+      sx={
+        isOpen
+          ? { position: "sticky", top: "58px", height: "100vh" }
+          : { position: "absolute", left: "-180px", width: "180px" }
+      }
     >
-      {categories.map((category) => {
-        return (
-          <button
-            onClick={() => setSelectedCategory(category.name)}
-            className='category-btn'
-            style={{ background: selectedCategory === category.name && "#FC1503", color: "white" }}
-            key={category.name}
-          >
-            <span style={{ color: category.name === selectedCategory ? "white" : "red", marginRight: "15px" }}>
-              {category.icon}
-            </span>
-            <span>{category.name}</span>
-          </button>
-        );
-      })}
-    </Stack>
+      <Stack
+        sx={{
+          height: "100%",
+          width: "180px",
+          paddingBottom: 4,
+          backgroundColor: "white",
+          justifyContent: "start",
+        }}
+        className='sidebar-stack'
+      >
+        {categories.map((category) => {
+          return (
+            <Link key={category.name} to='/'>
+              <button
+                onClick={() => setSelectedCategory(category.name)}
+                className='category-btn'
+                style={{
+                  background: selectedCategory === category.name && "rgb(198, 198, 198)",
+                  color: "black",
+                  width: "90%",
+                }}
+              >
+                <span
+                  style={{
+                    marginRight: "15px",
+                  }}
+                >
+                  {category.icon}
+                </span>
+                <span>{category.name}</span>
+              </button>
+            </Link>
+          );
+        })}
+      </Stack>
+    </Box>
   );
 }
 
