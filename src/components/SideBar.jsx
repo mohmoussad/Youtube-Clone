@@ -8,17 +8,18 @@ function SideBar({ selectedCategory, setSelectedCategory, isOpen }) {
     <Box
       sx={
         isOpen
-          ? { position: "sticky", top: "58px", height: "100vh" }
+          ? { position: "sticky", top: "58px", height: { xs: "70px", md: "100vh" } }
           : { position: "absolute", left: "-180px", width: "180px" }
       }
     >
       <Stack
         sx={{
-          height: "100%",
-          width: "180px",
-          paddingBottom: 4,
+          height: { xs: "70px", md: "100%" },
+          width: { xs: "100%", md: "180px" },
+          paddingBottom: { xs: 0, md: 4 },
           backgroundColor: "white",
           justifyContent: "start",
+          flexDirection: { xs: "row", md: "column" },
         }}
         className='sidebar-stack'
       >

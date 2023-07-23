@@ -41,14 +41,14 @@ a {
 }
 
 .react-player {
-  height: 77vh !important;
+  /* height: 77vh !important; */
   width: 100% !important;
 }
 
 .search-bar {
   border: none;
   outline: none;
-  width: 350px;
+  width: 100%;
 }
 .category-btn,
 .sidebar-toggle-btn {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { truncateString } from "../utils/utils";
+import SmartDisplayIcon from "@mui/icons-material/SmartDisplay";
 
 const ChannelCard = ({ channel }) => {
   return (
@@ -23,7 +23,10 @@ const ChannelCard = ({ channel }) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            alignItems: "center",
+
             textAlign: "center",
+            gap: "5px",
           }}
         >
           <CardMedia
@@ -31,7 +34,19 @@ const ChannelCard = ({ channel }) => {
             alt={channel?.snippet?.title}
             sx={{ borderRadius: "50%", height: "180px", width: "180px", mb: 2, border: "2px solid #e3e3e3" }}
           />
-          <Typography variant='h6'>{truncateString(channel?.snippet?.title, 20)}</Typography>
+          <Typography
+            sx={{
+              backgroundColor: "whitesmoke",
+              px: 2,
+              borderRadius: "20px",
+              display: "flex",
+              alignItems: "center",
+              fontWeight: "bold",
+            }}
+          >
+            <SmartDisplayIcon style={{ marginRight: "6px", color: "red" }} />
+            {channel?.snippet?.title}
+          </Typography>
         </CardContent>
       </Link>
     </Box>

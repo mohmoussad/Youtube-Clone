@@ -6,8 +6,7 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Videos from "./Videos";
 import Loader from "./Loader";
 import ErrorAlert from "./ErrorAlert";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
-
+import SmartDisplayIcon from "@mui/icons-material/SmartDisplay";
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
   const [showMore, setShowMore] = useState(false);
@@ -47,20 +46,36 @@ const VideoDetail = () => {
   return (
     <Box sx={{ overflowY: "auto", flex: 2 }}>
       <Stack alignItems='center'>
-        <Box sx={{ width: "70%" }}>
-          <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player' controls />
+        <Box sx={{ marginTop: { xs: 0, md: 3 }, width: { xs: "100%", md: "80%" } }}>
+          <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player' controls height='60vh' />
           <Typography variant='h5' fontWeight='bold' p={2}>
             {videoDetail.snippet.title}
           </Typography>
 
-          <Stack direction='row' justifyContent='space-between' py={1} px={2}>
+          <Stack direction='row' alignItems='center' justifyContent='space-between' py={1} px={2}>
             <Link to={`/channel/${videoDetail.snippet.channelId}`}>
-              <Typography variant='h5' sx={{ backgroundColor: "whitesmoke", px: 2, borderRadius: "20px" }}>
-                <LiveTvIcon sx={{ mr: 1 }} />
+              <Typography
+                sx={{
+                  backgroundColor: "whitesmoke",
+                  px: 2,
+                  borderRadius: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  fontWeight: "bold",
+                }}
+              >
+                <SmartDisplayIcon style={{ marginRight: "6px", color: "red" }} />
                 {videoDetail.snippet.channelTitle}
               </Typography>
             </Link>
-            <Stack direction='row' gap='20px' alignItems='center'>
+            <Stack
+              sx={{
+                flexDirection: { xs: "column", md: "row" },
+                gap: { xs: "0px", md: "20px" },
+                alignItems: { xs: "start", md: "center" },
+                px: 2,
+              }}
+            >
               <Typography variant='body1' className='dimmed'>
                 {parseInt(videoDetail.statistics.viewCount).toLocaleString()} views
               </Typography>

@@ -46,7 +46,7 @@ const ChannelDetail = () => {
   return (
     <Box sx={{ overflowY: "auto", flex: 2 }}>
       <Stack alignItems='center'>
-        <Box>{channel && <ChannelCard channel={channel} marginTop='-93px' />}</Box>
+        <Box>{channel && <ChannelCard channel={channel} />}</Box>
         <Box p={2} display='flex'>
           <Box justifyContent='center' alignItems='center' />
           <Videos videos={videos} />

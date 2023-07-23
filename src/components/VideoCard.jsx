@@ -10,7 +10,7 @@ function VideoCard({ video }) {
   } = video;
   return (
     video && (
-      <Card sx={{ boxShadow: "none", borderRadius: "15px 15px 0 0", width: { md: "350px", xs: "100%" } }}>
+      <Card sx={{ boxShadow: "none", borderRadius: "15px 15px 0 0", width: "350px" }}>
         <Link to={`/video/${videoId}`}>
           <CardMedia alt={snippet?.title} sx={{ width: "100%", height: 200 }} image={snippet?.thumbnails?.high?.url} />
         </Link>
