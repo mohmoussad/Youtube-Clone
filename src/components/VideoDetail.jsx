@@ -48,51 +48,52 @@ const VideoDetail = () => {
       <Stack alignItems='center'>
         <Box sx={{ marginTop: { xs: 0, md: 3 }, width: { xs: "100%", md: "80%" } }}>
           <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player' controls height='60vh' />
-          <Typography variant='h5' fontWeight='bold' p={2}>
+          <Typography variant='h5' fontWeight='bold' m={2}>
             {videoDetail.snippet.title}
           </Typography>
-
-          <Stack direction='row' alignItems='center' justifyContent='space-between' py={1} px={2}>
-            <Link to={`/channel/${videoDetail.snippet.channelId}`}>
-              <Typography
-                sx={{
-                  backgroundColor: "whitesmoke",
-                  px: 2,
-                  borderRadius: "20px",
-                  display: "flex",
-                  alignItems: "center",
-                  fontWeight: "bold",
-                }}
-              >
-                <SmartDisplayIcon style={{ marginRight: "6px", color: "red" }} />
-                {videoDetail.snippet.channelTitle}
-              </Typography>
-            </Link>
-            <Stack
+          <Link to={`/channel/${videoDetail.snippet.channelId}`}>
+            <Box
               sx={{
-                flexDirection: { xs: "column", md: "row" },
-                gap: { xs: "0px", md: "20px" },
-                alignItems: { xs: "start", md: "center" },
-                px: 2,
+                width: "max-content",
+                backgroundColor: "whitesmoke",
+                m: 2,
+                px: 1,
+                borderRadius: "20px",
+                display: "flex",
+                alignItems: "center",
+                fontWeight: "bold",
               }}
             >
-              <Typography variant='body1' className='dimmed'>
-                {parseInt(videoDetail.statistics.viewCount).toLocaleString()} views
-              </Typography>
-              <Typography variant='body1' className='dimmed'>
-                {parseInt(videoDetail.statistics.likeCount).toLocaleString()} likes
+              <SmartDisplayIcon style={{ marginRight: "6px", color: "red" }} />
+              <Typography variant='h6'>{videoDetail.snippet.channelTitle}</Typography>
+            </Box>
+          </Link>
+          <Box sx={{ backgroundColor: "whitesmoke", width: { xs: "90%", md: "100%" }, margin: "auto", marginY: 2 }}>
+            <Stack direction='column' justifyContent='space-between' py={1} px={2}>
+              <Stack
+                sx={{
+                  flexDirection: { xs: "column", md: "row" },
+                  gap: { xs: "0px", md: "20px" },
+                  alignItems: { xs: "start", md: "center" },
+                  py: 2,
+                }}
+              >
+                <Typography variant='body1'>
+                  {parseInt(videoDetail.statistics.viewCount).toLocaleString()} views
+                </Typography>
+                <Typography variant='body1'>
+                  {parseInt(videoDetail.statistics.likeCount).toLocaleString()} likes
+                </Typography>
+              </Stack>
+              <Typography variant='body1'>
+                {}
+                {showMore ? videoDetail.snippet.description : `${videoDetail.snippet.description.substring(0, 250)}`}
+                <button className='show-more-btn' onClick={() => setShowMore(!showMore)}>
+                  {showMore ? "Show less" : "Show more"}
+                </button>
               </Typography>
             </Stack>
-          </Stack>
-          <Stack direction='column' justifyContent='space-between' py={1} px={2}>
-            <Typography variant='body1' className='dimmed'>
-              {}
-              {showMore ? videoDetail.snippet.description : `${videoDetail.snippet.description.substring(0, 250)}`}
-              <button className='show-more-btn' onClick={() => setShowMore(!showMore)}>
-                {showMore ? "Show less" : "Show more"}
-              </button>
-            </Typography>
-          </Stack>
+          </Box>
         </Box>
 
         <Box margin={10} justifyContent='center' alignItems='center'>
