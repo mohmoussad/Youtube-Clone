@@ -36,7 +36,7 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='youtube-clone'>
       <Box>
         <Navbar toggleSidebar={toggleSidebar} />
         <Stack
