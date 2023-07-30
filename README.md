@@ -1,8 +1,8 @@
 # YouTube Clone - Frontend
 A Frontend clone of YouTube built using React. The application allows users to search for videos and watch them just like on the original YouTube platform. It utilizes the YouTube Data API provided by RapidAPI to fetch video data.
+[Live Version 🚀 ](https://mohmoussad.github.io/youtube-clone/)
 ![Screenshot from 2023-07-30 04-55-54](https://github.com/mohmoussad/youtube-clone/assets/88286511/80f00e57-fedc-4e52-8543-e101aa378ce8)
 
-[Live Version 🚀 ](https://mohmoussad.github.io/youtube-clone/)
 
 ## Technologies Used
 - React
